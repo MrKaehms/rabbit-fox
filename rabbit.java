@@ -52,5 +52,25 @@ public class rabbit extends Actor
     public void act() 
     {
         // Add your action code here.
+        if (Greenfoot.isKeyDown("j"))
+        {
+            move(smallJump);
+        }
+        if (Greenfoot.isKeyDown("k"))
+        {
+            move(bigJump);
+        }
+        if (Greenfoot.isKeyDown("o"))
+        {
+            turn(turnAmount);
+        }
+        if (getX() <= 5 || getX() >= getWorld().getWidth() - 5)
+        {
+            turn(180);
+        }
+        if (getY() <= 5 || getY() >= getWorld().getHeight() - 5)
+        {
+            turn(180);
+        }
     }    
 }
