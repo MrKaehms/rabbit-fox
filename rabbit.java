@@ -55,10 +55,12 @@ public class rabbit extends Actor
         if (Greenfoot.isKeyDown("j"))
         {
             move(smallJump);
+            currJump++;
         }
         if (Greenfoot.isKeyDown("k"))
         {
             move(bigJump);
+            currJump++;
         }
         if (Greenfoot.isKeyDown("o"))
         {
@@ -71,6 +73,11 @@ public class rabbit extends Actor
         if (getY() <= 5 || getY() >= getWorld().getHeight() - 5)
         {
             turn(180);
+        }
+        if (currJump >= maxJumps)
+        {
+            inRestMode = true;
+            
         }
     }    
 }
