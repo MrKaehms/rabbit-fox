@@ -41,7 +41,7 @@ public class rabbit extends Actor
     private int currJump =  0;  // counter to keep track of number of jumps before
                                 // rabbit goes into rest mode.
     
-    private int restCycle = 500; // This is the number of act cycles that
+    private int restCycle = 5; // This is the number of act cycles that
                                  // a rabbit must rest when he is in rest mode.
                                  // When in rest mode, a rabbit is completely still.
     private boolean inRestMode = false; // Set to true after maxJumps                            
@@ -77,7 +77,9 @@ public class rabbit extends Actor
         if (currJump >= maxJumps)
         {
             inRestMode = true;
-            
+            Greenfoot.delay(restCycle);
+            inRestMode = false;
+            currJump = 0;
         }
     }    
 }
