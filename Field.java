@@ -3,8 +3,8 @@ import greenfoot.*;
 /**
  * Write a description of class Field here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Hania and Angelica) 
+ * @version (1.27.2016)
  */
 public class Field extends World
 {
