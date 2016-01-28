@@ -16,7 +16,7 @@ import greenfoot.*;
  *       Once the restTime reaches 100, you can reset the inRestMode boolean, and
  *       allow the fox to run again.
  *       
- *   "t" turn the fox, using "turn(turnAmount)". turnAmount is in degrees and is
+ *   DONE "t" turn the fox, using "turn(turnAmount)". turnAmount is in degrees and is
  *   set as a fox instance variable.  
  *   
  *   "s" you can use the s key to take the fox out of run mode. This should
@@ -26,10 +26,10 @@ import greenfoot.*;
  *   In the act method, manage the counters above and tests for keyboard
  *   activity.  hard code the movement using "move(foxSpeed)".
  *   
- *   If the fox hits the wall, have him turn 180 degrees.  Make sure that he
+ *   DONE If the fox hits the wall, have him turn 180 degrees.  Make sure that he
  *   doesn't jump through the wall.
  *   
- *   In each act method, use "isTouching" and "removeTouching" to test
+ *   DONE In each act method, use "isTouching" and "removeTouching" to test
  *   to see if the fox has caught the rabit, and if so, remove it and set the 
  *   game to over (Greenfoot.stop())
  *   
@@ -47,8 +47,8 @@ public class fox extends Actor
                              //  when resting, must be 5, when running
                              //  can be up to 25.
     private int runCycle=10; //  max act cycles that a fox can run  
+    private int actCycle=0;
     private int turnAmount=5;   // set to anything between 1 and 15.
-    
     
     /**
      * Act - do whatever the fox wants to do. This method is called whenever
@@ -57,6 +57,58 @@ public class fox extends Actor
     
     public void act() 
     {
-        // Add your action code here.
+        //code for run mode
+        while (Greenfoot.isKeyDown("r"))
+        {
+            move(5);
+            runCycle = 0;
+            actCycle ++;
+            if (actCycle >= runCycle) {
+                restTime=0;
+            }
+        }
+        
+        if (restTime >= 100) {
+            inRestMode=true;
+            Greenfoot.delay(200);
+            inRestMode=false;
+            restTime=0;
+        }
+            
+        //code for turning the fox
+        if (Greenfoot.isKeyDown("t"))
+        {
+            turn(turnAmount);
+        }
+        
+        //code for taking out of run mode
+        while (Greenfoot.isKeyDown("s"))
+        {
+            inRestMode=true;
+            Greenfoot.delay(200);
+            inRestMode=false;
+            restTime=0;
+        }
+        
+        //move(foxSpeed) thingy???
+        if (running = true) {
+            move(foxSpeed);
+        }
+        
+        //if fox hits wall, turn 180
+        if (isAtEdge())
+        {
+            turn(180);
+        }
+        
+        //code for isTouching removeTouching thing?
+        Actor rabbit;
+        rabbit = getOneObjectAtOffset(0, 0, rabbit.class);
+        if (rabbit != null)
+        {
+            World world;
+            world = getWorld();
+            world.removeObject(rabbit);
+        }
     }    
 }
