@@ -3,8 +3,8 @@ import greenfoot.*;
 /**
  * Write a description of class rabbit here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Alessia Stewart) 
+ * @version (1/27/16)
  * 
  * Instructions.  
  * 
@@ -34,7 +34,7 @@ public class rabbit extends Actor
     private int smallJump=25;  // You can play with these two values but their sum must
     private int bigJump=50;    // be less than or equal to 75.
     
-    private int turnAmount= 5; // you can set this between 5 and 20. Fixed for duration of game
+    private int turnAmount= 15; // you can set this between 5 and 20. Fixed for duration of game
                                // turnAmount must be a multiple of 5.
                    
     private int maxJumps  = 4;  // Can be 1 to 5
@@ -52,5 +52,42 @@ public class rabbit extends Actor
     public void act() 
     {
         // Add your action code here.
+        if(Greenfoot.isKeyDown("J")){
+        move(smallJump);
+    }
+    
+    if (Greenfoot.isKeyDown("K")){
+        move(bigJump);
     }    
+    
+     if (Greenfoot.isKeyDown("O")){
+        setRotation(180);
+    }
+   
+    if(Greenfoot.isKeyDown("J")){
+        move(smallJump);
+    }
+   
+    if (Greenfoot.isKeyDown("K")){
+        move(bigJump);
+    }    
+    
+    if (Greenfoot.isKeyDown("Left")){
+        setRotation(180);
+    }
+    
+        if(Greenfoot.isKeyDown("Right")){
+        setRotation(0);
+    }
+    
+    if (Greenfoot.isKeyDown("Up")){
+        setRotation(-90);
+    }
+    
+        if(Greenfoot.isKeyDown("Down")){
+        setRotation(90);
+    }
+  }
 }
+ 
+
