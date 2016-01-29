@@ -57,6 +57,17 @@ public class fox extends Actor
     
     public void act() 
     {
-        // Add your action code here.
-    }    
+        move(10);
+        if (Greenfoot.isKeyDown("t") )
+        {
+            turn(90);
+        }
+    }
+    private void checkKeys()
+    {
+        if (Greenfoot.isKeyDown("t") )
+        {
+            turn(90);
+        }
+    }
 }
